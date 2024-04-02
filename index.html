@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="arthur.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+
+<body>
+    <div class="login_box">
+        <h1>Meu Login</h1>
+        <div class="area_digite">
+            <input type="text" id="email" placeholder="email">
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="area_digite">
+            <input type="password" id="senha" placeholder="senha">
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <div class="area_digite">
+            <button class="entrar" id="entrar">Entrar</button>
+        </div>
+        
+    </div>
+</body>
+<script>
+    var botao = document.getElementById("entrar");
+
+    botao.addEventListener("click", function() {
+        var email = document.getElementById("email");
+        var senha = document.getElementById("senha");
+        
+        email.value = "";
+        senha.value = "";
+    });
+</script>
+</html>
