@@ -23,7 +23,7 @@
             <i class='bx bxs-lock-alt' ></i>
         </div>
         <div class="area_digite">
-            <button class="entrar" id="entrar" onclick="trolagem()">Entrar</button>
+            <button class="entrar" id="entrar">Entrar</button>
         </div>
         
     </div>
@@ -32,14 +32,20 @@
 var botao = document.getElementById("entrar");
 
 botao.addEventListener("click", function() {
-    var email = document.getElementById("email");
-    var senha = document.getElementById("senha");
-        
-    email.value = "";
-     senha.value = "";
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+
+    if(email === "" || senha === "") {
+        alert("Por favor, preencha todos os campos.");
+    } else {
+        document.getElementById("email").value = "";
+        document.getElementById("senha").value = "";
+        trolagem();
+    }
 });
+
 function trolagem() {
-  alert("Obrigado por logar! Agora tenho acesso ao seu email rs");
+    alert("Obrigado por logar! Agora tenho acesso ao seu email rs");
 }
 </script>
 </html>
