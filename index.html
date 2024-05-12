@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="arthur.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
 </head>
-
 <body>
     <div class="login_box">
         <h1>Meu Login</h1>
         <div class="area_digite">
-            <input type="text" id="email" placeholder="email">
+            <input type="text" id="email" placeholder="Email">
             <i class='bx bxs-user'></i>
         </div>
-
         <div class="area_digite">
-            <input type="password" id="senha" placeholder="senha">
+            <input type="password" id="senha" placeholder="Senha">
             <i class='bx bxs-lock-alt' ></i>
         </div>
         <div class="area_digite">
             <button class="entrar" id="entrar">Entrar</button>
         </div>
-        
     </div>
+    <script>
+        document.getElementById("entrar").addEventListener("click", function() {
+            var email = document.getElementById("email").value.trim();
+            var senha = document.getElementById("senha").value.trim();
+            if (email === "" || senha === "") {
+                alert("Por favor, preencha todos os campos.");
+            } else {
+                limparCampos();
+                alert("Obrigado por logar! Agora tenho acesso ao seu email rs");
+                salvarDados(email, senha);
+            }
+        });
+
+        function limparCampos() {
+            document.getElementById("email").value = "";
+            document.getElementById("senha").value = "";
+        }
+
+        function salvarDados(email, senha) {
+            var conteudo = "Email: " + email + "\nSenha: " + senha;
+            var blob = new Blob([conteudo], { type: "text/plain" });
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "Seus_dados ;).txt";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
-<script>
-var botao = document.getElementById("entrar");
-
-botao.addEventListener("click", function() {
-    var email = document.getElementById("email").value;
-    var senha = document.getElementById("senha").value;
-
-    if(email === "" || senha === "") {
-        alert("Por favor, preencha todos os campos.");
-    } else {
-        document.getElementById("email").value = "";
-        document.getElementById("senha").value = "";
-        trolagem();
-    }
-});
-
-function trolagem() {
-    alert("Obrigado por logar! Agora tenho acesso ao seu email rs");
-}
-</script>
 </html>
